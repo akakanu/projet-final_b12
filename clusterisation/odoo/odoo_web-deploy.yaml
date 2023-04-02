@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odooweb-deployment
+  labels:
+    app: odoo
+    env: prod
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: odoo
+  template:
+    metadata:
+      labels:
+        app: odoo
+        env: prod
+    spec:
+      containers:
+        - name: odoo
+          image: odoo:13.0
+          ports:
+            - containerPort: 8069
+          env:
+            - name: HOST
+              value: postgres
+            - name: USER
+              value: admin
+            - name: PASSWORD
+              value: root
+          volumeMounts:
+            - name: pg-data
+              mountPath: /var/lib/odoo
+      volumes:
+      - name: pg-data
+        hostPath:
+          path: /data_k8s/odoo
