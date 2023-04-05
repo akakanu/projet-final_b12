@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: PGADMIN_DEFAULT_EMAIL
-              value: user@domain.com
+              value: pgadmin@pgadmin.com
             - name: PGADMIN_DEFAULT_PASSWORD
               valueFrom:
                 secretKeyRef:
