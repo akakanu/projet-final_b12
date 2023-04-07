@@ -19,7 +19,6 @@ spec:
     metadata:
       labels:
         app: odoo
-        env: prod
     spec:
       containers:
         - name: odoo
