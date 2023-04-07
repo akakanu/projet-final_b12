@@ -16,7 +16,6 @@ spec:
     metadata:
       labels:
         app: pgadmin
-        env: prod
     spec:
       containers:
         - name: pgadmin
