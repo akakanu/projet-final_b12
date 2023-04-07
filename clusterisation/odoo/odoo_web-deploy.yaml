@@ -18,11 +18,11 @@ spec:
   template:
     metadata:
       labels:
-        app: odoo:13.0
+        app: odoo
     spec:
       containers:
         - name: odoo
-          image: odoo
+          image: odoo:13.0
           ports:
             - containerPort: 8069
           env:
@@ -38,4 +38,4 @@ spec:
       volumes:
       - name: pg-data
         hostPath:
-          path: /data_k8s/odoo
+          path: /data/odoo

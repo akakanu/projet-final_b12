@@ -12,4 +12,4 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/data_k8s/pgadmin4"
+    path: "/data/pgadmin4"
